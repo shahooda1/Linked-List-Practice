@@ -1,0 +1,100 @@
+
+class Node:
+    def __init__(self, data):
+        
+        self.data = data
+        self.next = None
+        
+    def insertAtBegin(self, data):
+        
+        newNode = Node(data)
+        
+        if self.head is None:
+            
+            self.head = newNode
+            return
+        
+        else:
+            newNode.next = self.head
+            self.head = newNode
+            
+    def insertAtIndex(self, data, index):
+        
+        newNode = Node(data)
+        currentNode = self.head
+        position = 0
+        
+        if position == index:
+            
+            self.insertAtBegin(data)
+            
+        else:
+            
+            while (currentNode != None and position + 1 != index):
+                
+                position = position + 1
+                currentNode = currentNode.next
+                
+            if currentNode != None:
+                
+                newNode.next = currentNode.next
+                currentNode.next = newNode
+                
+            else:
+                
+                print("Index not present")
+                
+    def insertAtEnd (self, data):
+        
+        newNode = Node(data)
+        
+        if self.head is None:
+            
+            self.head = newNode
+            return
+        
+        currentNode = self.head
+        
+        while (currentNode.next):
+            
+            currentNode = currentNode.next
+            
+        currentNode.next = newNode
+        
+    def updateNode (self, val, index):
+        
+        currentNode = self.head
+        position = 0
+        
+        if position == index:
+            
+            currentNode.data = val
+            
+        else:
+            
+            while (currentNode != None and position != index):
+                
+                position = position + 1
+                currentNode = currentNode.next
+                
+            if currentNode != None:
+                
+                currentNode.data = val
+                
+            else:
+                
+                print("Index not present")
+                
+    def removeFirstNode(self):
+        
+        if self.head == None:
+            
+            return
+        
+        self.head = self.head.next
+        
+        
+
+                
+                
+                
