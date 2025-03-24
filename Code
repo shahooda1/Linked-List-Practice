@@ -1,14 +1,18 @@
+# Creating a class to define what a node is
+
 class Node:
     
     def __init__(self, data):
         self.data = data
         self.next = None
-        
+
+# Creating a class for the linked list     
 class LinkedList:
      
     def __init__(self):
         self.head = None
          
+# Function for inserting a node at the beginning
     def insertAtBegin(self, data):
         newNode = Node(data)
         
@@ -18,7 +22,8 @@ class LinkedList:
         else:
             newNode.next = self.head
             self.head = newNode
-        
+
+# Function for inserting a node at a specific index
     def insertAtIndex(self, data, index):
         newNode = Node(data)
         currentNode = self.head
@@ -36,7 +41,8 @@ class LinkedList:
                 currentNode.next = newNode
             else:
                 print("Index not present")
-                
+
+# Function for inserting a node at the end 
     def insertAtEnd(self, data):
         newNode = Node(data)
         
@@ -50,7 +56,8 @@ class LinkedList:
             currentNode = currentNode.next
             
         currentNode.next = newNode
-        
+
+# Function for replacing a node
     def updateNode(self, val, index):
         currentNode = self.head
         position = 0
@@ -66,19 +73,44 @@ class LinkedList:
                 currentNode.data = val
             else:
                 print("Index not present")
-                
+
+# Function for removing the first node     
     def removeFirstNode(self):
         if self.head is None:
             return
         
         self.head = self.head.next
-        
 
+# Function for printing the linked list
+    def printLL(self):
+        current_node = self.head
+        
+        while current_node:
+            print(current_node.data, end="--")
+            current_node = current_node.next
+            
+
+# Creating the linked list in the llist variable
 llist = LinkedList()
 
-llist.insertAtBegin("")
+# Adding all the students
+llist.insertAtBegin("Shahood")
+llist.insertAtBegin("Aidan")
+llist.insertAtEnd("Jaiden")
+llist.insertAtIndex("Marcos", 2)
+llist.insertAtEnd("Nate")
+llist.insertAtIndex("Leo", 1)
+llist.insertAtEnd("Mason")
+llist.insertAtIndex("Muntag", 4)
+llist.insertAtBegin("Ryan")
+llist.insertAtIndex("Gavin", 5)
+llist.insertAtBegin("Chris")
+
+# Printing the list
+llist.printLL()
+
+
 
 
 
         
-
